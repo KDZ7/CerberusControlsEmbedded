@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="template_roscon" params="name type *hardware enable_mimic:=false">
+        <ros2_control name="${name}" type="${type}">
+            <xacro:insert_block name="hardware" />
+
+            <!-- Front Right Leg -->
+            <joint name="SeFR_M">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ThFR_SeFR">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ArFR_ThFR">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ShFR_ThFR" mimic="${enable_mimic}">
+                <state_interface name="position" />
+                <xacro:unless value="${enable_mimic}">
+                    <command_interface name="position">
+                        <param name="min">-0.7854</param>
+                        <param name="max">0.7854</param>
+                    </command_interface>
+                    <!-- <command_interface name="velocity">
+                        <param name="min">0.0</param>
+                        <param name="max">6.545</param>
+                    </command_interface> -->
+                </xacro:unless>
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+                <param name="mimic">ArFR_ThFR</param>
+                <param name="multiplier">-0.2824</param>
+                <param name="offset">0</param>
+            </joint>
+
+            <!-- Front Left Leg -->
+            <joint name="SeFL_M">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ThFL_SeFL">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ArFL_ThFL">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ShFL_ThFL" mimic="${enable_mimic}">
+                <state_interface name="position" />
+                <xacro:unless value="${enable_mimic}">
+                    <command_interface name="position">
+                        <param name="min">-0.7854</param>
+                        <param name="max">0.7854</param>
+                    </command_interface>
+                    <!-- <command_interface name="velocity">
+                        <param name="min">0.0</param>
+                        <param name="max">6.545</param>
+                    </command_interface> -->
+                </xacro:unless>
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+                <param name="mimic">ArFL_ThFL</param>
+                <param name="multiplier">-0.2824</param>
+                <param name="offset">0</param>
+            </joint>
+
+            <!-- Back Right Leg -->
+            <joint name="SeBR_M">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ThBR_SeBR">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ArBR_ThBR">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ShBR_ThBR" mimic="${enable_mimic}">
+                <state_interface name="position" />
+                <xacro:unless value="${enable_mimic}">
+                    <command_interface name="position">
+                        <param name="min">-0.7854</param>
+                        <param name="max">0.7854</param>
+                    </command_interface>
+                    <!-- <command_interface name="velocity">
+                        <param name="min">0.0</param>
+                        <param name="max">6.545</param>
+                    </command_interface> -->
+                </xacro:unless>
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+                <param name="mimic">ArBR_ThBR</param>
+                <param name="multiplier">-0.2824</param>
+                <param name="offset">0</param>
+            </joint>
+
+            <!-- Back Left Leg -->
+            <joint name="SeBL_M">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ThBL_SeBL">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ArBL_ThBL">
+                <state_interface name="position" />
+                <command_interface name="position">
+                    <param name="min">-0.7854</param>
+                    <param name="max">0.7854</param>
+                </command_interface>
+                <!-- <command_interface name="velocity">
+                    <param name="min">0.0</param>
+                    <param name="max">6.545</param>
+                </command_interface> -->
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+            </joint>
+
+            <joint name="ShBL_ThBL" mimic="${enable_mimic}">
+                <state_interface name="position" />
+                <xacro:unless value="${enable_mimic}">
+                    <command_interface name="position">
+                        <param name="min">-0.7854</param>
+                        <param name="max">0.7854</param>
+                    </command_interface>
+                    <!-- <command_interface name="velocity">
+                        <param name="min">0.0</param>
+                        <param name="max">6.545</param>
+                    </command_interface> -->
+                </xacro:unless>
+                <param name="initial_position">0.0</param>
+                <param name="max_velocity">6.545</param>
+                <param name="max_effort">1.7</param>
+                <param name="mimic">ArBL_ThBL</param>
+                <param name="multiplier">-0.2824</param>
+                <param name="offset">0</param>
+            </joint>
+
+            <!-- IMU Sensors -->
+            <!-- <sensor name="IMU0C">
+                <state_interface name="orientation" />
+                <state_interface name="angular_velocity" />
+                <state_interface name="linear_acceleration" />
+            </sensor> -->
+
+        </ros2_control>
+    </xacro:macro>
+</robot>

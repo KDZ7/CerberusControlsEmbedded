@@ -1,0 +1,8 @@
+<library path="hwsystem_ag">
+    <class name="hwsystem_ag/HwsystemAg" type="hwsystem_ag::HwsystemAg"
+        base_class_type="hardware_interface::SystemInterface">
+        <description>
+            Plugin interacts with the Cerberus hardware.
+        </description>
+    </class>
+</library>

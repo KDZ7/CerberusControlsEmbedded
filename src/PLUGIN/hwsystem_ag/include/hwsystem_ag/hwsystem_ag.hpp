@@ -1,0 +1,59 @@
+#ifndef __HWSYSTEM_AG_HPP__
+#define __HWSYSTEM_AG_HPP__
+
+#include "log/log.hpp"
+#include "rclcpp/rclcpp.hpp"
+#include "hardware_interface/system_interface.hpp"
+#include "hwsystem_ag/visibility_control.h"
+#include "idevice/idevice.hpp"
+#include "group_action/msg/group_action.hpp"
+
+namespace hwsystem_ag
+{
+
+  using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
+  class HwsystemAg : public hardware_interface::SystemInterface
+  {
+  public:
+    CallbackReturn on_init(const hardware_interface::HardwareInfo &info) override;
+    CallbackReturn on_configure(const rclcpp_lifecycle::State &previous_state) override;
+    CallbackReturn on_activate(const rclcpp_lifecycle::State &previous_state) override;
+    CallbackReturn on_deactivate(const rclcpp_lifecycle::State &previous_state) override;
+    CallbackReturn on_cleanup(const rclcpp_lifecycle::State &previous_state) override;
+    CallbackReturn on_error(const rclcpp_lifecycle::State &previous_state) override;
+    CallbackReturn on_shutdown(const rclcpp_lifecycle::State &previous_state) override;
+
+    hardware_interface::return_type read(const rclcpp::Time &time, const rclcpp::Duration &period) override;
+    hardware_interface::return_type write(const rclcpp::Time &time, const rclcpp::Duration &period) override;
+
+    std::vector<hardware_interface::StateInterface::ConstSharedPtr> on_export_state_interfaces() override;
+    std::vector<hardware_interface::CommandInterface::SharedPtr> on_export_command_interfaces() override;
+
+  private:
+    void action_group_callback(const group_action::msg::GroupAction::SharedPtr msg);
+
+    std::shared_ptr<rclcpp::Node> node_;
+    rclcpp::Subscription<group_action::msg::GroupAction>::SharedPtr action_group_sub_;
+    group_action::msg::GroupAction::SharedPtr action_group_;
+
+    bool action_group_running_ = false;
+    std::string action_group_topic_;
+    std::string config_file_path_;
+
+    std::map<std::string, uint8_t> joint_idmap_;
+    std::map<std::string, double> joint_state_positions_;
+    std::map<std::string, double> joint_command_positions_;
+    std::map<std::string, double> joint_max_positions_;
+    std::map<std::string, double> joint_min_positions_;
+    std::map<std::string, double> home_positions_;
+
+    bool real_state_enable_;
+    double real_state_period_;
+    double real_state_timeout_;
+
+    std::shared_ptr<idevice::Servo> servo_;
+  };
+
+} // namespace hwsystem_ag
+
+#endif // __HWSYSTEM_AG_HPP__

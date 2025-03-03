@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot name="CERBERUS" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find cerberus_v1)/description/urdf/CERBERUS_V1.urdf" />
+    <xacro:include filename="$(find cerberus_v1)/description/roscon/template_roscon.xacro" />
+
+    <!-- <xacro:template_roscon name="HW_CERBERUS_MOCK_GENERIC_SYSTEM" type="system"
+        enable_mimic="true">
+        <hardware>
+            <plugin>mock_components/GenericSystem</plugin>
+            <param name="disable_commands">false</param>
+            <param name="mock_gpio_commands">true</param>
+            <param name="mock_sensor_commands">true</param>
+            <param name="position_state_following_offset">0.0</param>
+        </hardware>
+    </xacro:template_roscon> -->
+
+    <!-- <xacro:template_roscon name="HW_SYSTEM" type="system"
+        enable_mimic="true">
+        <hardware>
+            <plugin>hwsystem/Hwsystem</plugin>
+            <param name="config_file_path">$(find cerberus)/setup/hwconfig.yaml</param>
+        </hardware>
+    </xacro:template_roscon> -->
+
+    <xacro:template_roscon name="HW_SYSTEM_AG" type="system"
+        enable_mimic="true">
+        <hardware>
+            <plugin>hwsystem_ag/HwsystemAg</plugin>
+            <param name="config_file_path">$(find cerberus)/setup/hwconfig.yaml</param>
+        </hardware>
+    </xacro:template_roscon>
+</robot>

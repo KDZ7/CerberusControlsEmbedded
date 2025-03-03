@@ -1,0 +1,29 @@
+mimic_masters: 
+    ArFR_ThFR: ShFR_ThFR
+    ArFL_ThFL: ShFL_ThFL
+    ArBR_ThBR: ShBR_ThBR
+    ArBL_ThBL: ShBL_ThBL
+mimic_multipliers:
+    ArFR_ThFR: -0.2824
+    ArFL_ThFL: -0.2824
+    ArBR_ThBR: -0.2824
+    ArBL_ThBL: -0.2824
+mimic_offsets:
+    ArFR_ThFR: 0.0
+    ArFL_ThFL: 0.0
+    ArBR_ThBR: 0.0
+    ArBL_ThBL: 0.0
+
+mimic_limits:
+    ArFR_ThFR:
+        min: -1.5708
+        max: 0.20944
+    ArFL_ThFL:
+        min: -0.20944
+        max: 1.5708
+    ArBR_ThBR:
+        min: -1.5708
+        max: 0.20944
+    ArBL_ThBL:
+        min: -0.20944
+        max: 1.5708

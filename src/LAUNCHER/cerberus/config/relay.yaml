@@ -1,0 +1,13 @@
+ros_domain_id: 0
+namespace: Null
+pkg_robot_description: "cerberus_v1"
+robot_description: "description/cerberus.urdf.xacro"
+
+controller_manager:
+  setup_path: "[cerberus]/setup/cmanager.yaml"
+  update_rate: 10
+
+environment:
+  res_paths: ""
+  plug_paths: ""
+  lib_paths: ""
