@@ -1,0 +1,5 @@
+<library path="hidraw">
+    <class type="hidraw::Hidraw" base_class_type="iio::Bus">
+        <description>Plugin for HIDRAW devices. Connect to USB devices </description>
+    </class>
+</library>

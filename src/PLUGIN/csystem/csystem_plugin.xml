@@ -1,0 +1,8 @@
+<library path="csystem">
+    <class name="csystem/Csystem" type="csystem::Csystem"
+        base_class_type="controller_interface::ControllerInterface">
+        <description>
+            Plugin interacts with the Cerberus controller.
+        </description>
+    </class>
+</library>

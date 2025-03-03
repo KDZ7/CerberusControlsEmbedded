@@ -1,0 +1,65 @@
+controller_manager:
+  ros__parameters:
+    # update_rate: 1000
+    csystem_controller:
+      type: csystem/Csystem
+
+csystem_controller:
+  ros__parameters:
+    joints: 
+    # LegFR:
+      - SeFR_M
+      - ThFR_SeFR
+      - ArFR_ThFR 
+      # - ShFR_ThFR (mimic)
+    # LegFL:
+      - SeFL_M
+      - ThFL_SeFL
+      - ArFL_ThFL
+      # - ShFL_ThFL (mimic)
+    # LegBR:
+      - SeBR_M
+      - ThBR_SeBR
+      - ArBR_ThBR
+      # - ShBR_ThBR (mimic)
+    # LegBL:
+      - SeBL_M
+      - ThBL_SeBL
+      - ArBL_ThBL
+      # - ShBL_ThBL (mimic)
+    command_interfaces: 
+      - position
+    state_interfaces:
+      - position
+    topic_pub: /csystem/joint_states
+    topic_sub: /csystem/joint_commands
+
+    joint_offsets: 
+
+    # LegFR:
+      - 0.0  # SeFR_M
+      - 0.0  # ThFR_SeFR
+      - 0.0  # ArFR_ThFR
+
+    # LegFL:
+      - 0.0 # SeFL_M
+      - 0.0 # ThFL_SeFL
+      - 0.0 # ArFL_ThFL
+
+    # LegBR:
+      - 0.0 # SeBR_M
+      - 0.0 # ThBR_SeBR
+      - 0.0 # ArBR_ThBR
+
+    # LegBL:
+      - 0.0  # SeBL_M
+      - 0.0 # ThBL_SeBL
+      - 0.0 # ArBL_ThBL
+
+    kp: 1.05
+    ki: 0.05
+    kd: 0.05
+    i_clamp: 1.0
+    dthreshold: 0.002
+    dcorrection: 0.7
+    smoothing_factor : 0.5

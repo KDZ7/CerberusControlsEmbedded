@@ -1,0 +1,37 @@
+idmap:
+  SeFR_M: 01
+  ThFR_SeFR: 02
+  ArFR_ThFR: 03
+  SeFL_M: 11
+  ThFL_SeFL: 12
+  ArFL_ThFL: 13
+  SeBR_M: 21
+  ThBR_SeBR: 22
+  ArBR_ThBR: 23
+  SeBL_M: 31
+  ThBL_SeBL: 32
+  ArBL_ThBL: 33
+
+home_positions:
+  SeFR_M: 0.0
+  ThFR_SeFR: 0.0
+  ArFR_ThFR: 0.0
+  SeFL_M: 0.0
+  ThFL_SeFL: 0.0
+  ArFL_ThFL: 0.0
+  SeBR_M: 0.0
+  ThBR_SeBR: 0.0
+  ArBR_ThBR: 0.0
+  SeBL_M: 0.0
+  ThBL_SeBL: 0.0
+  ArBL_ThBL: 0.0
+
+movetime: 25 # ms
+
+real_state_enable: false
+real_state_period: 100.0 # ms
+real_state_timeout: 25.0 # ms
+real_state_tolerance: 1e-2
+
+
+

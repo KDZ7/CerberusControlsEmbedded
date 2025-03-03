@@ -1,0 +1,5 @@
+<library path="lsc_servo">
+    <class type="lsc_servo::Lsc_servo" base_class_type="idevice::Servo">
+        <description>Plugin for LSC_SERVO devices. Connect to LSC_SERVO devices </description>
+    </class>
+</library>
